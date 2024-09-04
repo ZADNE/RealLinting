@@ -15,17 +15,21 @@ runs:
   steps:
     - name: Clone RealLinting
       uses: actions/checkout@v4
+      with:
+        repository: ZADNE/RealLinting
+        ref: main
+        path: 'RealLinting'
 
     - name: Run clang-tidy
       shell: bash
       run: |
-        python ${{ github.workspace }}/RealLinting/run-clang-tidy.py ${{ input.clang-tidy }} ${{ input.compile-commands-json }} ${{ input.report-file }}
+        python ${{ github.workspace }}/RealLinting/run-clang-tidy.py ${{ inputs.clang-tidy }} ${{ inputs.compile-commands-json }} ${{ inputs.report-file }}
 
     - name: Check report
       shell: bash
       run: |
-        if [ -s ${{ input.report-file }} ]; then
+        if [ -s ${{ inputs.report-file }} ]; then
           echo "Some files did not pass linting! Report follows:"
-          cat ${{ input.report-file }}
+          cat ${{ inputs.report-file }}
           exit 1
         fi
