@@ -1,12 +1,10 @@
 # RealLinting
 
-This action checks (via clang-tidy) whether a repo adheres to [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines).
-
-A very few checks are [disabled]((https://github.com/ZADNE/Real/blob/main/.clang-tidy). Other than that, there must be no errors and no warnings reported for the action to succeed.
+This action checks a repo with clang-tidy. The checked repo is expect to have .clang-tidy file in place. There must be no errors and no warnings reported for the action to succeed.
 
 ## Usage
 
-CMake configuration must succeed on the project to be checked and it must [export compile commands](https://cmake.org/cmake/help/latest/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html) for files to be checked.
+CMake configuration must succeed on the project to be checked and it must [export compile commands](https://cmake.org/cmake/help/latest/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html) for the files to be checked.
 
 ```yaml
 - uses: ZADNE/RealLinting@v0.1

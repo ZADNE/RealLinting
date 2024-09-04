@@ -17,9 +17,9 @@ runs:
       uses: actions/checkout@v4
 
     - name: Run clang-tidy
-        shell: bash
-        run: |
-          python ${{ github.workspace }}/RealLinting/run-clang-tidy.py ${{ input.clang-tidy }} ${{ input.compile-commands-json }} ${{ input.report-file }}
+      shell: bash
+      run: |
+        python ${{ github.workspace }}/RealLinting/run-clang-tidy.py ${{ input.clang-tidy }} ${{ input.compile-commands-json }} ${{ input.report-file }}
 
     - name: Check report
       shell: bash
