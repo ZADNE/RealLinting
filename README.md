@@ -1,6 +1,6 @@
 # RealLinting
 
-This action checks a repo with clang-tidy. The checked repo is expect to have .clang-tidy file in place. There must be no errors and no warnings reported for the action to succeed.
+This action checks a repo with clang-tidy. The checked repo is expected to have .clang-tidy file in place. The action, by design, succeeds even if errors or warnings are reported by clang-tidy. Check report file contents to see if the linting was successful.
 
 ## Usage
 
