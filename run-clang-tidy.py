@@ -12,13 +12,14 @@ def runClangTidy(entry):
     proc.wait()
 
 if __name__ == '__main__':
-    freeze_support()
+    multiprocessing.freeze_support()
 
     # Get arguments
     clangTidyFilepath = sys.argv[1]
     jsonFilepath = sys.argv[2]
     outputFilepath = sys.argv[3]
 
+    #Create output file
     open(outputFilepath, 'w').close()
 
     # Parse JSON to dict
