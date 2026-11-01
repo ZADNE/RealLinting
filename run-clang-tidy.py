@@ -3,6 +3,11 @@
 
 import os, sys, subprocess, multiprocessing, json
 
+# Get arguments
+clangTidyFilepath = sys.argv[1]
+jsonFilepath = sys.argv[2]
+outputFilepath = sys.argv[3]
+
 # Runs clang-tidy on one entry
 def runClangTidy(entry):
     filepath = entry['file']
@@ -13,11 +18,6 @@ def runClangTidy(entry):
 
 if __name__ == '__main__':
     multiprocessing.freeze_support()
-
-    # Get arguments
-    clangTidyFilepath = sys.argv[1]
-    jsonFilepath = sys.argv[2]
-    outputFilepath = sys.argv[3]
 
     #Create output file
     open(outputFilepath, 'w').close()
